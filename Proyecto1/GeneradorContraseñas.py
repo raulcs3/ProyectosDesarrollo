@@ -2,34 +2,42 @@ from flask import Flask, render_template, request
 import random
 import string
 
-def generar_contrasena(longitud, incluir_mayusculas=True, incluir_minusculas=True, incluir_numeros=True, incluir_caracteres_especiales=True):
-    caracteres = ""
+app = Flask(__name__)
 
+def generar_contraseña(longitud, incluir_mayusculas=True, incluir_minusculas=True, incluir_caracteres_especiales=True):
+    caracteres = ''
     if incluir_mayusculas:
         caracteres += string.ascii_uppercase
     if incluir_minusculas:
         caracteres += string.ascii_lowercase
-    if incluir_numeros:
-        caracteres += string.digits
     if incluir_caracteres_especiales:
         caracteres += string.punctuation
+    caracteres += string.digits
 
-    contrasena = ''.join(random.choice(caracteres) for _ in range(longitud))
-    return contrasena
+    contraseña = ''.join(random.choice(caracteres) for _ in range(longitud))
+    return contraseña
 
-if __name__ == "__main__":
-    longitud_deseada = int(input("Ingresa la longitud deseada para la contraseña: "))
-    incluir_mayusculas = input("¿Incluir mayúsculas? (s/n): ").lower() == 's'
-    incluir_minusculas = input("¿Incluir minúsculas? (s/n): ").lower() == 's'
-    incluir_numeros = input("¿Incluir números? (s/n): ").lower() == 's'
-    incluir_caracteres_especiales = input("¿Incluir caracteres especiales? (s/n): ").lower() == 's'
+# Ruta para la página de inicio
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    contrasena_generada = generar_contrasena(
-        longitud_deseada,
-        incluir_mayusculas,
-        incluir_minusculas,
-        incluir_numeros,
-        incluir_caracteres_especiales
+# Ruta para generar la contraseña
+@app.route('/generar_contraseña', methods=['POST'])
+def generar():
+    longitud = int(request.form['longitud'])
+    usar_mayusculas = 'mayusculas' in request.form
+    usar_minusculas = 'minusculas' in request.form
+    usar_caracteres_especiales = 'caracteres_especiales' in request.form
+
+    contraseña_generada = generar_contraseña(
+        longitud,
+        incluir_mayusculas=usar_mayusculas,
+        incluir_minusculas=usar_minusculas,
+        incluir_caracteres_especiales=usar_caracteres_especiales
     )
 
-    print("Contraseña generada:", contrasena_generada)
+    return contraseña_generada
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
