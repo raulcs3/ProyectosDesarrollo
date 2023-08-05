@@ -18,7 +18,7 @@ body {
 .container {
   max-width: 400px;
   padding: 20px;
-  background-color: #ffffff; /* Color de fondo blanco */
+  background-color: #ffffff; 
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
@@ -29,11 +29,14 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
   color: #333333; /* Color del texto principal */
+  font-size: 32px;
 }
 
 /* Estilo del formulario */
 form {
-  margin-top: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Estilo de las etiquetas del formulario */
@@ -77,7 +80,7 @@ input[type="submit"]:hover {
 
 /* Estilo del texto de la contraseña generada */
 p {
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
   color: #333333; /* Color del texto */
