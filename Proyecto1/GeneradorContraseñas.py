@@ -1,43 +1,31 @@
-from flask import Flask, render_template, request
-import random
 import string
+import random
 
-app = Flask(__name__)
-
-def generar_contraseña(longitud, incluir_mayusculas=True, incluir_minusculas=True, incluir_caracteres_especiales=True):
-    caracteres = ''
-    if incluir_mayusculas:
-        caracteres += string.ascii_uppercase
-    if incluir_minusculas:
+def generar_contrasena():
+    longitud = int(input("Ingrese la longitud de la contraseña: "))
+    
+    # Caracteres a utilizar
+    
+    caracteres = ""
+    if input("¿Incluir caracteres en minúsculas? (s/n): ").lower() == "s":
         caracteres += string.ascii_lowercase
-    if incluir_caracteres_especiales:
+    if input("¿Incluir caracteres en mayúsculas? (s/n): ").lower() == "s":
+        caracteres += string.ascii_uppercase
+    if input("¿Incluir números? (s/n): ").lower() == "s":
+        caracteres += string.digits
+    if input("¿Incluir caracteres especiales? (s/n): ").lower() == "s":
         caracteres += string.punctuation
-    caracteres += string.digits
+    
+    # Verificar que el usuario haya seleccionado al menos un tipo de caracter
 
-    contraseña = ''.join(random.choice(caracteres) for _ in range(longitud))
-    return contraseña
+    if not caracteres:
+        print("Debe seleccionar al menos un tipo de caracter.")
+        return
+    
+    # Generar la contraseña aleatoria
 
-# Ruta para la página de inicio
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-# Ruta para generar la contraseña
-@app.route('/generar_contraseña', methods=['POST'])
-def generar():
-    longitud = int(request.form['longitud'])
-    usar_mayusculas = 'mayusculas' in request.form
-    usar_minusculas = 'minusculas' in request.form
-    usar_caracteres_especiales = 'caracteres_especiales' in request.form
-
-    contraseña_generada = generar_contraseña(
-        longitud,
-        incluir_mayusculas=usar_mayusculas,
-        incluir_minusculas=usar_minusculas,
-        incluir_caracteres_especiales=usar_caracteres_especiales
-    )
-
-    return contraseña_generada
+    contraseña = ''.join(random.choice(caracteres) for i in range(longitud))
+    print("Contraseña generada:", contraseña)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    generar_contrasena()
