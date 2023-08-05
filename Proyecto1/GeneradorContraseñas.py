@@ -5,7 +5,7 @@ def generar_contrasena():
     longitud = int(input("Ingrese la longitud de la contraseña: "))
     
     # Caracteres a utilizar
-    
+
     caracteres = ""
     if input("¿Incluir caracteres en minúsculas? (s/n): ").lower() == "s":
         caracteres += string.ascii_lowercase
