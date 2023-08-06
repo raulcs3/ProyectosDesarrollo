@@ -1,34 +1,27 @@
 import string
 import random
-from flask import Flask, render_template, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/generar', methods=['POST'])
 def generar():
-    longitud = int(request.form['longitud'])
+    data = request.get_json()
+    longitud = int(data['longitud'])
     
     caracteres = ""
-    if 'minusculas' in request.form:
+    if 'minusculas' in data:
         caracteres += string.ascii_lowercase
-    if 'mayusculas' in request.form:
+    if 'mayusculas' in data:
         caracteres += string.ascii_uppercase
-    if 'numeros' in request.form:
+    if 'numeros' in data:
         caracteres += string.digits
-    if 'especiales' in request.form:
+    if 'especiales' in data:
         caracteres += string.punctuation
     
     if not caracteres:
-        return "Debe seleccionar al menos un tipo de caracter."
+        return jsonify({"error": "Debe seleccionar al menos un tipo de caracter."}), 400
     
     contraseña = ''.join(random.choice(caracteres) for i in range(longitud))
     
-    return render_template('index.html', contraseña=contraseña)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    return jsonify({"contraseña": contraseña}), 200

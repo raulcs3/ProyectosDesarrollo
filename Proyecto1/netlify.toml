@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+
+[[redirects]]
+  from = "/generar"
+  to = "/.netlify/functions/generar"
+  status = 200
