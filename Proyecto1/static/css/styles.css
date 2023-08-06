@@ -36,6 +36,7 @@ h1 {
   background-image: url("pattern.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  opacity: 0.2;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
