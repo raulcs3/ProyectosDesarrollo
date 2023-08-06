@@ -27,11 +27,21 @@ body {
 /* Estilo del título principal */
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 45%;
   color: #333333; /* Color del texto principal */
   font-size: 32px;
 }
-
+.recuadro-formulario {
+  background-color: rgba(255, 255, 255, 0.6); /* Fondo con transparencia del 40% (rgba) */
+  background-image: url("S:\ProyectoPibes\Repositorio_Raulcs3\Proyectos-Python\Proyecto1\static\img\pattern.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
 /* Estilo del formulario */
 form {
   margin-top: 20px;
