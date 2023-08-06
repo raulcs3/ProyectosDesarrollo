@@ -1,27 +1,40 @@
+import json
 import string
 import random
-from flask import Flask, request, jsonify
 
-app = Flask(__name__)
+def generar(event, context):
+    if event['httpMethod'] != 'POST':
+        return {
+            'statusCode': 405,
+            'body': json.dumps({'error': 'Método no permitido'})
+        }
 
-@app.route('/generar', methods=['POST'])
-def generar():
-    data = request.get_json()
+    data = json.loads(event['body'])
     longitud = int(data['longitud'])
-    
-    caracteres = ""
-    if 'minusculas' in data:
+    minusculas = data.get('minusculas', False)
+    mayusculas = data.get('mayusculas', False)
+    numeros = data.get('numeros', False)
+    especiales = data.get('especiales', False)
+
+    caracteres = ''
+    if minusculas:
         caracteres += string.ascii_lowercase
-    if 'mayusculas' in data:
+    if mayusculas:
         caracteres += string.ascii_uppercase
-    if 'numeros' in data:
+    if numeros:
         caracteres += string.digits
-    if 'especiales' in data:
+    if especiales:
         caracteres += string.punctuation
-    
+
     if not caracteres:
-        return jsonify({"error": "Debe seleccionar al menos un tipo de caracter."}), 400
-    
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'error': 'Debe seleccionar al menos un tipo de caracter.'})
+        }
+
     contraseña = ''.join(random.choice(caracteres) for i in range(longitud))
-    
-    return jsonify({"contraseña": contraseña}), 200
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps({'contraseña': contraseña})
+    }
