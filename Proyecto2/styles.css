@@ -48,7 +48,7 @@ body, h1, h2, p, form {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(./assets/pattern.jpg);/* Ruta relativa a la imagen */
+    background-image: url('https://drive.google.com/file/d/1Kr1ku11aHMxuoR6nULTCCVyeSJeTPPCZ/view?usp=sharing');/* Ruta relativa a la imagen */
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.2; /* 20% de transparencia para la imagen de fondo */
