@@ -32,17 +32,15 @@ h1 {
   font-size: 32px;
 }
 .recuadro-formulario {
-  background-color: rgba(255, 255, 255, 0.6); /* Fondo con transparencia del 40% */
-  background-image: url("pattern.jpg"); /* Ruta relativa a la imagen */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   max-width: 400px;
   margin: 0 auto;
 }
+
+/* Capa para la imagen de fondo con transparencia del 20% */
 .recuadro-formulario::before {
   content: "";
   position: absolute;
@@ -50,12 +48,12 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("pattern.jpg");
+  background-image: url("pattern.jpg"); /* Ruta relativa a la imagen */
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.2; /* 20% de transparencia para la imagen de fondo */
-  z-index: -1; /* Aseguramos que la capa de la imagen esté detrás del contenido */
-  border-radius: inherit; /* Hereda el borde redondeado del recuadro */
+  z-index: -1;
+  border-radius: 10px;
 }
 /* Estilo del formulario */
 form {
