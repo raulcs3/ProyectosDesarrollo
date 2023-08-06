@@ -1,40 +1,36 @@
-import json
 import string
 import random
+from flask import Flask, render_template, request
 
-def generar(event, context):
-    if event['httpMethod'] != 'POST':
-        return {
-            'statusCode': 405,
-            'body': json.dumps({'error': 'Método no permitido'})
-        }
+app = Flask(__name__)
 
-    data = json.loads(event['body'])
-    longitud = int(data['longitud'])
-    minusculas = data.get('minusculas', False)
-    mayusculas = data.get('mayusculas', False)
-    numeros = data.get('numeros', False)
-    especiales = data.get('especiales', False)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    caracteres = ''
-    if minusculas:
+@app.route('/generar', methods=['POST'])
+def generar():
+    longitud = int(request.form['longitud'])
+    
+    caracteres = ""
+    if 'minusculas' in request.form:
         caracteres += string.ascii_lowercase
-    if mayusculas:
+    if 'mayusculas' in request.form:
         caracteres += string.ascii_uppercase
-    if numeros:
+    if 'numeros' in request.form:
         caracteres += string.digits
-    if especiales:
+    if 'especiales' in request.form:
         caracteres += string.punctuation
-
+    
     if not caracteres:
-        return {
-            'statusCode': 400,
-            'body': json.dumps({'error': 'Debe seleccionar al menos un tipo de caracter.'})
-        }
-
+        return "Debe seleccionar al menos un tipo de caracter."
+    
     contraseña = ''.join(random.choice(caracteres) for i in range(longitud))
+    
+    return render_template('index.html', contraseña=contraseña)
 
-    return {
-        'statusCode': 200,
-        'body': json.dumps({'contraseña': contraseña})
-    }
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+    
