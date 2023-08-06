@@ -33,7 +33,7 @@ h1 {
 }
 .recuadro-formulario {
   background-color: rgba(255, 255, 255, 0.6); /* Fondo con transparencia del 40% (rgba) */
-  background-image: url("S:\ProyectoPibes\Repositorio_Raulcs3\Proyectos-Python\Proyecto1\static\img\pattern.jpg");
+  background-image: url("https://github.com/raulcs3/Proyectos-Python/blob/main/Proyecto1/static/img/pattern.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 20px;
