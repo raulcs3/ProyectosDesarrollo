@@ -32,7 +32,7 @@ h1 {
   font-size: 32px;
 }
 .recuadro-formulario {
-  background-color: rgba(255, 255, 255, 0.6); /* Fondo con transparencia del 40% (rgba) */
+  background-color: rgba(255, 255, 255, 0.15); /* Fondo con transparencia del 40% (rgba) */
   background-image: url("pattern.jpg");
   background-size: cover;
   background-repeat: no-repeat;
