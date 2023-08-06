@@ -29,5 +29,6 @@ def generar():
     
     return render_template('index.html', contraseña=contraseña)
 
+
 if __name__ == "__main__":
     app.run(debug=True)
