@@ -63,9 +63,9 @@ body, h1, h2, p, form {
   
   /* Estilo de las casillas de verificación */
   input[type="checkbox"] {
-    margin-right: 8px;
+    margin-right: 0px;
   }
-  
+
   /* Estilo del botón de envío */
   input[type="submit"] {
     margin-top: 20px;
