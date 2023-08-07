@@ -39,7 +39,6 @@ body, h1, h2, p, form {
   /* Estilo del formulario */
   form {
     margin-top: 20px;
-    opacity: ;
     display: flex;
     flex-direction: column;
   }
