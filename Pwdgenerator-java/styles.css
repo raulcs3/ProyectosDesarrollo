@@ -14,7 +14,7 @@ body, h1, h2, p, form {
     align-items: center;
     min-height: 100vh;
     background-image: url('wallpaper3.gif');
-    background-size: cover; /* Ruta a tu imagen de fondo */
+    background-size: cover ; /* Ruta a tu imagen de fondo */
   }
   
   /* Estilo del contenedor principal */
