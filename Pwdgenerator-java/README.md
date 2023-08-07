@@ -1,4 +1,4 @@
-# Randompasswd with html, java and css
+# Randompasswd with Html, JavaScript and Css
 
 Esto es un generador random de contraseñas simple y con un estilo minimalista.
 
