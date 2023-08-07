@@ -2,4 +2,4 @@
 
 Esto es un generador random de contraseñas simple y con un estilo minimalista.
 
-## Puedes ver mi el despliegue aquí -- > https://randompassswdgenerator.netlify.app/
+## Puedes ver el despliegue aquí -- > https://randompassswdgenerator.netlify.app/
