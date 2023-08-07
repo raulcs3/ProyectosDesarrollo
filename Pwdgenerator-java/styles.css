@@ -14,7 +14,7 @@ body, h1, h2, p, form {
     align-items: center;
     min-height: 100vh;
     background-image: url('assets/wallpaper3.gif');
-    background-size: cover ; /* Ruta a tu imagen de fondo */
+    background-size: cover ; 
     cursor: url(assets/pixelmouse.png), auto;
   }
   
@@ -75,17 +75,17 @@ body, h1, h2, p, form {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #000000; /* Color de fondo verde */
+    background-color: #000000; 
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s ease; /* Efecto de transición */
+    transition: background-color 0.3s ease; /* Efecto de transición */
     cursor: url(assets/pixelmouse.png), auto;
   }
   
   input[type="submit"]:hover {
-    background-color: #a3429b; /* Color de fondo verde más oscuro en el hover */
+    background-color: #a3429b; 
     cursor: url(assets/pixelmouse.png), auto;
   }
   
