@@ -1,19 +1,20 @@
 /* Resetear estilos del navegador */
 body, h1, h2, p, form {
-    margin: 0;
-    color: #000000;
-    padding: 0;
+  margin: 0;
+  color: #ffffff; /* Color de texto blanco */
+  padding: 0;
   }
   
   /* Estilo del cuerpo de la página */
   body {
-    font-family: 'Arial', sans-serif;
-    background-color: #0000000a; /* Color de fondo azul claro */
+    font-family: 'Courier New', monospace; /* Fuente retro */
+    background-color: #000000; /* Fondo negro */
     display: flex;
-    background-image: url(pattern.jpg);
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-image: url('pattern.jpg'); /* Ruta a tu imagen de fondo */
+    background-repeat: repeat;
   }
   
   /* Estilo del contenedor principal */
