@@ -13,7 +13,7 @@ body, h1, h2, p, form {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('wallpaper3.gif');
+    background-image: url('assets/wallpaper3.gif');
     background-size: cover ; /* Ruta a tu imagen de fondo */
   }
   
