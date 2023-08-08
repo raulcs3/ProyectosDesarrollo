@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/generar"
-  to = "/.netlify/functions/generar"
-  status = 200
